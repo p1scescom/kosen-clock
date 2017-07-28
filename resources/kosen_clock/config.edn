@@ -1,0 +1,17 @@
+{:duct.core/project-ns  kosen-clock
+ :duct.core/environment :production
+
+ :duct.module/logging {}
+ :duct.module/web {}
+
+ :duct.router/cascading
+ [#ig/ref :kosen-clock.handler/routing]
+
+ :duct.handler.static/not-found {:response "This page cannot be found"
+                                 :headers {"Content-Type" "text/html; charset=utf-8"}
+                                 :body #ig/ref :kosen-clock.handler/not-found}
+
+ :kosen-clock.handler/routing {}
+ :kosen-clock.handler/not-found {}
+ :kosen-clock/port {}
+ }

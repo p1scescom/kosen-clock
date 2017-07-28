@@ -1,0 +1,13 @@
+{% extends "template/base.html" %}
+{% block title %}ようこそ高専時計へ | Welcame to Kosen Clock{% endblock %}
+{% block home %}class="active"{% endblock %}
+{% block body %}
+    <div class="my-margin">
+    <div class="my-screen">
+        <img src="{{access-root}}/img/{{global-last-upload-image}}" class="my-img">
+    </div>
+    </div>
+    <div>
+    <p>高専時計は 高専祭 に関わるすべての人の姿を写した、高専版美人時計です。来ていただいた方々にも参加していただき、より盛り上げて頂ければと考えています。また、高専時計へ参加すると何かいいものがもらえるかも…?</p>
+    <a href="{{access-root}}/upload" >アップロードページ</a>
+{% endblock %}

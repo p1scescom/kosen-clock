@@ -1,0 +1,22 @@
+{% extends "template/base.html" %}
+{% block title %}高専時計アップロード{% endblock %}
+{% block upload %}class="active"{% endblock %}
+{% block home-top %}{% endblock %}
+{% block body %}
+    <div class="my-margin">
+    <div class="my-screen">
+        <img src="{{access-root}}/img/{{last-image}}" class="my-img">
+    </div>
+    </div>
+    <div>
+    <form action="{{access-root}}/upload" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="アップロード画像"/>
+            <input name="file" type="file"/>
+            <p class="help-block">※注意: アップロードした画像はマーク部が時計に編集され、誰でも閲覧可能な状態になります。</p>
+        </div>
+        <button type="submit" name="submit" class="btn-lg btn-default">規約に同意して投稿!</button>
+    </form>
+    </div>
+    <a href="{{access-root}}/">ホームへ戻る</a>
+{% endblock %}

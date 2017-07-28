@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{{access-root}}/css/bootstrap.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{access-root}}/js/bootstrap.min.js"></script>
+    <link href="{{access-root}}/css/style.css" rel="stylesheet"/>
+{{other-head|safe}}
+</head>
+<body>{% block home-top %}{% endblock %}
+    <header class="my-header" style="background-color:while">
+        <h1 class="no-pad-mar">高専時計 | Kosen Clock へようこそ</h1>
+        <ul class="nav nav-tabs">
+            <li role="presentation" {% block home %}{% endblock %}><a href="{{access-root}}/">Home</a></li>
+            <li role="presentation" {% block list %}{% endblock %}><a href="{{access-root}}/list">List</a></li>
+            <li role="presentation" {% block upload %}{% endblock %}><a href="{{access-root}}/upload">Upload</a></li>
+        </ul>
+    </header>
+{% block body %}{% endblock %}
+    <footer style="background-color:gray">
+    <p>高専時計は舞鶴工業高等専門学校 電気情報工学科 E-project (電気情報工学科のスペシャリスト達によるアクロバット集団)によって運営されてます。</p>
+    </footer>
+</body>
+</html>
