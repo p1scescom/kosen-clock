@@ -11,7 +11,8 @@
   :main ^:skip-aot kosen-clock.main
   :uberjar-name "kosen-clock-standalone.jar"
   :duct {:config-paths ["resources/kosen_clock/config.edn"]}
-  :resource-paths ["resources" "target/resources"]
+  :jvm-opts ["-Djava.library.path=./lib"]
+  :resource-paths ["resources" "target/resources" "lib"]
   :prep-tasks     ["javac" "compile" ["duct" "compile"]]
   :profiles
   {:dev     [:project/dev :profiles/dev]

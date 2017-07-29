@@ -2,13 +2,12 @@
   (:gen-class)
   (:require [clojure.java.io :as io]
             [duct.core :as duct]
-            [kosen-clock.info :as info]
             [kosen-clock.handler.routing :as routing]
             [kosen-clock.handler.not-found :as not-found]
             [kosen-clock.port :as port]
             [selmer.parser :as parser]))
 
-(def img-root (atom "img/show"))
+(def img-root (atom "img/show/"))
 (def portn (atom 3000))
 
 (defn -main [& {:as args}]
