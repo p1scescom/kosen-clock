@@ -68,17 +68,7 @@
                                   not-file "<h3 class=\"text-danger\">ファイルを選択して送信してください。</h3>"
                                   not-picture "<h3 class=\"text-danger\">拡張子が画像ファイルではありません。.jpg .png 拡張子にしてください。</h3>"
                                   large-picture "<h3 class=\"text-danger\">画像ファイルが大きすぎます。10MB以下でお願いします。</h3>"
-                                  :else nil)})}
-    #_(if (and (not (.isEmpty filename)) (re-find #"(?i)\.(jpg|jpeg|png)$" filename) (> 10485760 (.length tempfile)))
-      (do
-        (let [now-label (img-time-name)]
-          (when-not (.exists (io/as-file @img-root)) (.mkdirs (io/file @img-root)))
-          (io/copy tempfile (io/file (str @img-root now-label)))
-          (reset! global-last-upload-image now-label)
-          {:cookies {"img" now-label}
-          :headers {"Content-Type" "text/html; charset=utf-8"}
-          :body (upload-html now-label)}))
-      (upload-html (:value (cookies "img"))))))
+                                  :else nil)})}))
 
 (defmethod ig/init-key :kosen-clock.handler/routing [_ _]
   (context @access-root []
@@ -88,7 +78,7 @@
         (GET "/" [] (parser/render-file "template/root.html" {:access-root @access-root
                                                               :global-last-upload-image @global-last-upload-image}))
         (GET "/upload" {cookies :cookies}
-              (upload-html (:value (cookies "img"))))
+             (upload-html {:image-name (:value (cookies "img"))}))
         (POST "/upload" {params :params cookies :cookies} (upload-image (get params "file") cookies))
         (GET "/list" [] (parser/render-file "template/list.html" {:access-root @access-root}))
 
