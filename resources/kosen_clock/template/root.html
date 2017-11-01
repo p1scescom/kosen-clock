@@ -2,14 +2,20 @@
 {% block title %}ようこそ高専時計へ | Welcame to Kosen Clock{% endblock %}
 {% block home %}class="active"{% endblock %}
 {% block body %}
+    <script type="text/javascript">
+        $("#now").attr("src","{{access-root}}/img/now.jpg"+"?rand="+Math.random())
+        var date = new Date()
+        setTimeout(function(){setInterval(function() {$("#now")[0].src = $("#now")[0].src+"?rand="+Math.random();}, 10000)}, 60 - date.getSeconds())
+    </script>
     <div class="my-margin">
     <div class="my-screen">
-        <img src="{{access-root}}/img/{{global-last-upload-image}}" class="my-img">
+        <img src="{{access-root}}/img/time-now.jpg" class="my-img" id="now">
     </div>
     </div>
     <div class="container">
         <h2 class="text-center">高専時計とは</h2>
         <p>高専時計は 高専祭 に関わるすべての人の姿を写した、高専版美人時計です。来ていただいた方々にも参加していただき、より盛り上げて頂ければと考えています。また、高専時計へ参加すると何かいいものがもらえるかも…?</p>
+        <p>時間は正確ではありません。リアルタイムで生成しているため、数秒ほどタイムラグがあります。ご了承下さい。
 
         <a href="{{access-root}}/upload" >アップロードページ</a>
     </div>

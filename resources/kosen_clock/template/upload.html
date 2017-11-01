@@ -3,18 +3,47 @@
 {% block upload %}class="active"{% endblock %}
 {% block home-top %}{% endblock %}
 {% block body %}{{error|safe}}
-    <div class="my-margin">
-    <div class="my-screen">
-        <img src="{{access-root}}/img/{{last-image}}" class="my-img">
-    </div>
+    <div class="container">
+        <p>※注意:写真をアップロードする際にはボードを中心にして撮影をお願いします。</p>
+        <div class="row">
+            <div class="col-xs-12 col-md-4 grid-img">
+                <h4 class="text-center">マークA </h4>
+                <img src="{{access-root}}/img/{{last-markA}}">
+            </div>
+            <div class="col-xs-12 col-md-4 grid-img">
+                <h4 class="text-center">マークB</h4>
+                <img src="{{access-root}}/img/{{last-markB}}">
+            </div>
+            <div class="col-xs-12 col-md-4 grid-img">
+                <h4 class="text-center">マークC</h4>
+                <img src="{{access-root}}/img/{{last-markC}}">
+            </div>
+        </div>
     </div>
     <div class="container">
+        <h4 class="help-block">※注意: アップロードした画像はマーク部が時計に編集され、誰でも閲覧可能な状態になります。</h4>
+        <h4 class="help-block">※アップロードしても画像が表示されない場合には、アップロード先と撮影した写真のマークが異ならないか、写真にマークがしっかりと捉えられているか確認して下さい。場合によっては再度撮影をお願い致します。</h4>
         <div class="form-group">
-            <p>アップロードする画像を選択してください。</p>
-            <form action="{{access-root}}/upload" method="post" enctype="multipart/form-data">
-                <label for="アップロード画像"/>
+            <p>マークA:アップロードする画像を選択してください。</p>
+            <form action="{{access-root}}/upload?mark=markA" method="post" enctype="multipart/form-data">
+                <label for="マークA アップロード画像"/>
                 <input name="file" type="file"/>
-                <h4 class="help-block">※注意: アップロードした画像はマーク部が時計に編集され、誰でも閲覧可能な状態になります。</h4>
+                <button type="submit" name="submit" class="btn-lg btn-default">規約に同意して投稿!</button>
+            </form>
+        </div>
+        <div class="form-group">
+            <p>マークB:アップロードする画像を選択してください。</p>
+            <form action="{{access-root}}/upload?mark=markB" method="post" enctype="multipart/form-data">
+                <label for="マークB アップロード画像"/>
+                <input name="file" type="file"/>
+                <button type="submit" name="submit" class="btn-lg btn-default">規約に同意して投稿!</button>
+            </form>
+        </div>
+        <div class="form-group">
+            <p>マークC:アップロードする画像を選択してください。</p>
+            <form action="{{access-root}}/upload?mark=markC" method="post" enctype="multipart/form-data">
+                <label for="マークC アップロード画像"/>
+                <input name="file" type="file"/>
                 <button type="submit" name="submit" class="btn-lg btn-default">規約に同意して投稿!</button>
             </form>
         </div>

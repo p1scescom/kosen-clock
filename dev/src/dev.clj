@@ -6,8 +6,10 @@
             [clojure.java.io :as io]
             [duct.core :as duct]
             [eftest.runner :as eftest]
+            [kosen-clock.handler.routing :as routing]
+            [kosen-clock.img :as img]
             [integrant.core :as ig]
-            [integrant.repl :refer [clear halt go init prep reset]]
+            [integrant.repl :as irepl :refer [clear halt init prep reset]]
             [integrant.repl.state :refer [config system]]))
 
 (defn read-config []

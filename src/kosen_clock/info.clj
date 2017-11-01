@@ -3,6 +3,8 @@
 
 (def access-root (atom ""))
 
-(def img-root (atom "img/show"))
+(def img-root (atom "img/show/"))
 
-(def port (atom 3000))
+(def img-local (atom "img/local/"))
+
+(def portn (atom 3000))
